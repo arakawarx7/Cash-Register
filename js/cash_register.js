@@ -42,10 +42,10 @@ var balance = 0;
 createNumButton([1,2,3,4,5,6,7,8,9,0,]);
 
 addScreen();
-equalsScreen();
 subScreen();
 multiplyScreen();
 divideScreen();
+equalsScreen();
 balanceScreen();
 depositScreen();
 withdrawScreen();
@@ -166,21 +166,23 @@ function balanceScreen(){
   balBut.addEventListener('click',function(){
       // updates the display area
     display.innerHTML = parseInt(balance);
-    console.log(balance);
+    calc.load(balance);
     clickOperation = 'bal';
   });
   balBut.innerHTML ='get balance';
 
-  add.appendChild(balBut);
+  bal.appendChild(balBut);
 }
 
 function depositScreen(){
   depBut.addEventListener('click',function(){
-      // updates the display area
-      balance += parseInt(display.innerHTML);
+    // updates the display area
+    balance += parseInt(display.innerHTML);
     display.innerHTML = "";
-    console.log('depsit', balance);
+    calc.load(balance);
+    calc.saveMemory();
     clickOperation = 'dep';
+
   });
   depBut.innerHTML ='deposit cash';
 
@@ -193,7 +195,9 @@ function withdrawScreen(){
       // updates the display area
     balance -= parseInt(display.innerHTML);
     display.innerHTML = "";
-    console.log('withdraw', balance);
+    //console.log('withdraw', balance);
+
+    calc.saveMemory();
     clickOperation = 'dep';
   });
   withBut.innerHTML ='withdraw cash';
