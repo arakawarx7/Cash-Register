@@ -94,22 +94,22 @@ function calculatorModule(){
    * Return the value stored at `memory`
    * @return { Number }
    */
-   calculator.recallMemory = function(x){
+   calculator.recallMemory = function(){
     return memory;
    };
 
   /**
    * Stores the value of `total` to `memory`
    */
-   calculator.saveMemory = function(x){
+   calculator.saveMemory = function(){
     memory = total;
-    return this.memory;
+    return memory;
    };
 
   /**
    * Clear the value stored at `memory`
    */
-calculator.clearMemory = function(x){
+calculator.clearMemory = function(){
   memory = 0;
   return memory;
   };
